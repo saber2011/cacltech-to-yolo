@@ -30,7 +30,7 @@ def convertBoxFormat(box):
 	return (x, y, w, h)
 
 # traverse sets
-for caltech_set in sorted(glob.glob('../caltech/annotations/set*')):
+for caltech_set in sorted(glob.glob('/content/annotations/set*')):
 	set_nr = os.path.basename(caltech_set).replace('set', '')
 	dataset = 'train' if int(set_nr) < 6 else 'test'
 	set_id = dataset + set_nr
