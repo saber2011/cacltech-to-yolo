@@ -27,5 +27,14 @@ def convert(dir):
 				i += 1
 			print(fn)
 
-convert('../caltech/train*')
-convert('../caltech/test*')
+convert('/content/set00')
+convert('/content/set01')
+convert('/content/set02')
+convert('/content/set03')
+convert('/content/set04')
+convert('/content/set05')
+convert('/content/set06')
+convert('/content/set07')
+convert('/content/set08')
+convert('/content/set09')
+convert('/content/set10')
