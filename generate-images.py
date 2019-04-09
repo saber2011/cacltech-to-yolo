@@ -10,7 +10,7 @@ def save_img(dname, fn, i, frame):
 		out_dir, os.path.basename(dname),
 		os.path.basename(fn).split('.')[0], i), frame)
 
-out_dir = 'images'
+out_dir = '/content/darknet/build/darknet/x64/data/obj'
 if not os.path.exists(out_dir):
 	os.makedirs(out_dir)
 
