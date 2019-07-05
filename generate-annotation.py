@@ -7,8 +7,8 @@ import glob
 from scipy.io import loadmat
 
 
-classes = ['person', 'people'] # others are 'person-fa' and 'person?'
-squared = True
+classes = ['person'] # others are 'person-fa' and 'person?'
+squared = False
 frame_size = (640, 640) if squared else (640, 480)
 number_of_truth_boxes = 0
 datasets = {
@@ -30,7 +30,7 @@ def convertBoxFormat(box):
 	return (x, y, w, h)
 
 # traverse sets
-for caltech_set in sorted(glob.glob('/content/annotations/set*')):
+for caltech_set in sorted(glob.glob('/content/darknet/data/annotations/set*')):
 	set_nr = os.path.basename(caltech_set).replace('set', '')
 	dataset = 'train' if int(set_nr) < 6 else 'test'
 	set_id = dataset + set_nr
@@ -63,7 +63,7 @@ for caltech_set in sorted(glob.glob('/content/annotations/set*')):
 					continue
 
 				image_id = set_id + '_' + video_id + '_' + str(frame_id)
-				datasets[dataset].write(os.getcwd() + '/images/' + image_id + ('_squared' if squared else '') + '.png\n')
+				datasets[dataset].write('/content/darknet/build/darknet/x64/data/obj/' + image_id + ('_squared' if squared else '') + '.png\n')
 				label_file = open('labels/' + image_id + ('_squared' if squared else '') + '.txt', 'w')
 				label_file.write(labels)
 				label_file.close()
